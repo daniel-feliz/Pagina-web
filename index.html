@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&M TORRES CONSTRUCTION | Expert Construction & Remodeling</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+             --primary: #f59e0b; /* Naranja constructor */
+            --primary-dark: #1e293b; /* Azul oscuro corporativo */
+            --dark: #1A1A1A;
+            --light: #F9F9F9;
+            --gray: #777777;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* --- LANGUAGE SELECTOR --- */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 3px 6px;
+            cursor: pointer;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 5px 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-bottom-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects {
+            background: var(--light);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 280px;
+            transition: var(--transition);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-info {
+            transform: translateY(0);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .project-info span {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .info-item p {
+            color: var(--gray);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 140px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- FLOATING BUTTONS --- */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.6rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn { background-color: #25D366; }
+        .sms-btn { background-color: #007AFF; }
+        .fb-btn { background-color: #1877F2; }
+        .ig-btn { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media(max-width: 992px) {
+            .nav-right nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-right nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-lang="en">
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="logo-container">
+            <img src="imagenes/logo.jpg?auto=format&fit=crop&w=80&q=80" alt="A&M TORRES CONSTRUCTION Logo" width="50" height="50">
+            <div class="logo-text">
+                A&M TORRES
+                <span>CONSTRUCTION</span>
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#inicio" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#servicios" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#proyectos" data-i18n="nav_projects">Projects</a></li>
+                    <li><a href="#contacto" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- LANGUAGE SELECTOR -->
+            <div class="lang-selector">
+                <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <h1 data-i18n="hero_title">We Build Your Dreams with <span>Quality & Trust</span></h1>
+        <p data-i18n="hero_desc">Experts in residential and commercial construction: concrete, drywall, siding, roofing, tile, flooring, cabinets, and much more.</p>
+        <a href="#contacto" class="btn" data-i18n="hero_btn">Get a Free Quote</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="section">
+        <div class="section-title">
+            <h2 data-i18n="services_title">Our Services</h2>
+            <p data-i18n="services_subtitle">Comprehensive construction and remodeling solutions for homes and businesses</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3 data-i18n="srv_concrete_title">Concrete</h3>
+                <p data-i18n="srv_concrete_desc">Foundations, sidewalks, driveways, and high-resistance concrete patios.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-hammer"></i>
+                <h3>Drywall</h3>
+                <p data-i18n="srv_drywall_desc">Installation, space division, professional finishes, insulation, and repairs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-border-all"></i>
+                <h3>Siding</h3>
+                <p data-i18n="srv_siding_desc">Modern exterior cladding that boosts energy efficiency and building facade.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-water"></i>
+                <h3>Gutters</h3>
+                <p data-i18n="srv_gutters_desc">Installation, cleaning, and maintenance of gutters to protect foundations from water.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-house-chimney"></i>
+                <h3 data-i18n="srv_roofing_title">Roofing</h3>
+                <p data-i18n="srv_roofing_desc">Comprehensive installation, maintenance, and leak-proof repair for roofs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-paint-roller"></i>
+                <h3 data-i18n="srv_painting_title">Painting</h3>
+                <p data-i18n="srv_painting_desc">Detailed interior and exterior painting protecting and enhancing surfaces.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-table-cells"></i>
+                <h3>Tile</h3>
+                <p data-i18n="srv_tile_desc">Professional tile installation for kitchens, bathrooms, floors, and backsplashes.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-kitchen-set"></i>
+                <h3>Cabinets</h3>
+                <p data-i18n="srv_cabinets_desc">Custom kitchen cabinets and bathroom vanities installation and design.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-border-top-left"></i>
+                <h3 data-i18n="srv_floors_title">Flooring</h3>
+                <p data-i18n="srv_floors_desc">Specialized hardwood, vinyl, laminate, and tile flooring placement.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-tree"></i>
+                <h3>Decks</h3>
+                <p data-i18n="srv_deck_desc">Design and construction of custom wooden and synthetic outdoor decks.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-stairs"></i>
+                <h3 data-i18n="srv_basement_title">Basement</h3>
+                <p data-i18n="srv_basement_desc">Complete basement finishing and remodeling into functional living areas.</p>
+            </div>
+         
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="proyectos" class="section projects">
+        <div class="section-title">
+            <h2 data-i18n="proj_title">Our Projects</h2>
+            <p data-i18n="proj_subtitle">Explore our gallery organized by specialty categories</p>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+            <button class="filter-btn" data-filter="concreto" data-i18n="filter_concrete">Concrete</button>
+            <button class="filter-btn" data-filter="drywall" data-i18n="filter_drywall">Drywall</button>
+            <button class="filter-btn" data-filter="siding" data-i18n="filter_siding">Siding</button>
+            <button class="filter-btn" data-filter="gutters" data-i18n="filter_gutters">Gutters</button>
+            <button class="filter-btn" data-filter="roofing" data-i18n="filter_roofing">Roofing</button>
+            <button class="filter-btn" data-filter="pintura" data-i18n="filter_painting">Painting</button>
+            <button class="filter-btn" data-filter="tile" data-i18n="filter_tile">Tile</button>
+            <button class="filter-btn" data-filter="cabinets" data-i18n="filter_cabinets">Cabinets</button>
+            <button class="filter-btn" data-filter="flooring" data-i18n="filter_flooring">Flooring</button>
+            <button class="filter-btn" data-filter="deck" data-i18n="filter_deck">Decks</button>
+            <button class="filter-btn" data-filter="basement" data-i18n="filter_basement">Basement</button>
+            
+        </div>
+
+        <!-- Project Grid Collection -->
+        <div class="projects-grid">
+            <div class="project-card" data-category="concreto">
+                <img src="imagenes/concreto1.jpg?auto=format&fit=crop&w=800&q=80" alt="Concrete Project">
+                <div class="project-info">
+                    <span data-i18n="cat_concrete">Concrete</span>
+                    <h4 data-i18n="proj_1_title">Driveway and Sidewalk</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="drywall">
+                <img src="imagenes/drywall1.jpg?auto=format&fit=crop&w=800&q=80" alt="Drywall Project">
+                <div class="project-info">
+                    <span>Drywall</span>
+                    <h4 data-i18n="proj_2_title">Commercial and residential installation work</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="siding">
+                <img src="imagenes/siding.jpg?auto=format&fit=crop&w=800&q=80" alt="Siding Project">
+                <div class="project-info">
+                    <span>Siding</span>
+                    <h4 data-i18n="proj_3_title">Modern Siding Cladding</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="gutters">
+                <img src="imagenes/gutters.jpg?auto=format&fit=crop&w=800&q=80" alt="Gutters Project">
+                <div class="project-info">
+                    <span>Gutters</span>
+                    <h4 data-i18n="proj_4_title">Seamless Gutters Installation</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="roofing">
+                <img src="imagenes/roofing.jpg?auto=format&fit=crop&w=800&q=80" alt="Roofing Project">
+                <div class="project-info">
+                    <span>Roofing</span>
+                    <h4 data-i18n="proj_5_title">Residential Roof Installation</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="pintura">
+                <img src="imagenes/paint.jpg?auto=format&fit=crop&w=800&q=80" alt="Painting Project">
+                <div class="project-info">
+                    <span data-i18n="cat_painting">Painting</span>
+                    <h4 data-i18n="proj_6_title">Commercial Facade Renovation</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="tile">
+                <img src="imagenes/tile.jpg?auto=format&fit=crop&w=800&q=80" alt="Tile Project">
+                <div class="project-info">
+                    <span>Tile</span>
+                    <h4 data-i18n="proj_7_title">Bathroom Tile Installation</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="cabinets">
+                <img src="imagenes/cabinet.jpg?auto=format&fit=crop&w=800&q=80" alt="Cabinets Project">
+                <div class="project-info">
+                    <span>Cabinets</span>
+                    <h4 data-i18n="proj_8_title">Custom Kitchen Cabinets</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="flooring">
+                <img src="imagenes/painting.jpg?auto=format&fit=crop&w=800&q=80" alt="Flooring Project">
+                <div class="project-info">
+                    <span data-i18n="cat_flooring">Flooring</span>
+                    <h4 data-i18n="proj_9_title">Hardwood Floor Placement</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="deck">
+                <img src="imagenes/deck.jpg?auto=format&fit=crop&w=800&q=80" alt="Deck Project">
+                <div class="project-info">
+                    <span>Deck</span>
+                    <h4 data-i18n="proj_10_title">Outdoor Wooden Terrace</h4>
+                </div>
+            </div>
+            <div class="project-card" data-category="basement">
+                <img src="imagenes/basement.jpg?auto=format&fit=crop&w=800&q=80" alt="Basement Project">
+                <div class="project-info">
+                    <span>Basement</span>
+                    <h4 data-i18n="proj_11_title">Basement Remodeling</h4>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" class="section">
+        <div class="section-title">
+            <h2 data-i18n="contact_title">Contact Us</h2>
+            <p data-i18n="contact_subtitle">Let's talk about your next construction or remodeling project</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info-box">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4 data-i18n="info_location_title">Location</h4>
+                        <p data-i18n="info_location_desc">Columbus, Ohio</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4 data-i18n="info_phone_title">Phone / Text</h4>
+                        <p>6142734811</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4 data-i18n="info_email_title">Email</h4>
+                        <p>amtorresconstructionllc@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <!-- FORMULARIO QUE ENVÍA MENSAJE DE TEXTO (SMS) -->
+            <form class="contact-form" onsubmit="enviarMensajeSMS(event)">
+                <div class="form-group">
+                    <input type="text" id="form-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="form-phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="form-email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <textarea id="form-msg" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn" data-i18n="form_btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footer_copy">&copy; 2026 A&M TORRES CONSTRUCTION. All rights reserved.</p>
+    </footer>
+
+    <!-- QUICK ACCESS FLOATING BUTTONS -->
+   <div class="floating-actions">
+        <a href="https://wa.me/6142734811?text=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20project." target="_blank" class="float-btn whatsapp-btn" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="sms:6142734811?body=Hello,%20I%20want%20information%20about%20your%20construction%20services." class="float-btn sms-btn" title="Text Message">
+            <i class="fa-solid fa-comment-sms"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="float-btn ig-btn" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61580842722410" target="_blank" class="float-btn fb-btn" title="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+    </div>
+    <!-- JAVASCRIPT: LOGIC, TRANSLATIONS & SMS DISPATCHER -->
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                hero_title: "We Build Your Dreams with <span>Quality & Trust</span>",
+                hero_desc: "Experts in residential and commercial construction: concrete, drywall, siding, roofing, tile, flooring, cabinets, and much more.",
+                hero_btn: "Get a Free Quote",
+                services_title: "Our Services",
+                services_subtitle: "Comprehensive construction and remodeling solutions for homes and businesses",
+                srv_concrete_title: "Concrete",
+                srv_concrete_desc: "Foundations, sidewalks, driveways, and high-resistance concrete patios.",
+                srv_drywall_desc: "Installation, space division, professional finishes, insulation, and repairs.",
+                srv_siding_desc: "Modern exterior cladding that boosts energy efficiency and building facade.",
+                srv_gutters_desc: "Installation, cleaning, and maintenance of gutters to protect foundations from water.",
+                srv_roofing_title: "Roofing",
+                srv_roofing_desc: "Comprehensive installation, maintenance, and leak-proof repair for roofs.",
+                srv_painting_title: "Painting",
+                srv_painting_desc: "Detailed interior and exterior painting protecting and enhancing surfaces.",
+                srv_tile_desc: "Professional tile installation for kitchens, bathrooms, floors, and backsplashes.",
+                srv_cabinets_desc: "Custom kitchen cabinets and bathroom vanities installation and design.",
+                srv_floors_title: "Flooring",
+                srv_floors_desc: "Specialized hardwood, vinyl, laminate, and tile flooring placement.",
+                srv_deck_desc: "Design and construction of custom wooden and synthetic outdoor decks.",
+                srv_basement_title: "Basement",
+                srv_basement_desc: "Complete basement finishing and remodeling into functional living areas.",
+                srv_doors_desc: "Installation of main entry doors, interior doors, and commercial doors.",
+                proj_title: "Our Projects",
+                proj_subtitle: "Explore our gallery organized by specialty categories",
+                filter_all: "All",
+                filter_concrete: "Concrete",
+                filter_drywall: "Drywall",
+                filter_siding: "Siding",
+                filter_gutters: "Gutters",
+                filter_roofing: "Roofing",
+                filter_painting: "Painting",
+                filter_tile: "Tile",
+                filter_cabinets: "Cabinets",
+                filter_flooring: "Flooring",
+                filter_deck: "Decks",
+                filter_basement: "Basement",
+                filter_doors: "Doors",
+                cat_concrete: "Concrete",
+                cat_painting: "Painting",
+                cat_flooring: "Flooring",
+                proj_1_title: "Driveway and Sidewalk",
+                proj_2_title: "Interior Partitions and Finishes",
+                proj_3_title: "Modern Siding Cladding",
+                proj_4_title: "Seamless Gutters Installation",
+                proj_5_title: "Residential Roof Installation",
+                proj_6_title: "Commercial Facade Renovation",
+                proj_7_title: "Bathroom Tile Installation",
+                proj_8_title: "Custom Kitchen Cabinets",
+                proj_9_title: "Hardwood Floor Placement",
+                proj_10_title: "Outdoor Wooden Terrace",
+                proj_11_title: "Basement Remodeling",
+                proj_12_title: "Modern Entry Doors",
+                contact_title: "Contact Us",
+                contact_subtitle: "Let's talk about your next construction or remodeling project",
+                info_location_title: "Location",
+                info_location_desc: "Available for residential and commercial jobs",
+                info_phone_title: "Phone / Text",
+                info_email_title: "Email",
+                form_name_ph: "Your Name",
+                form_phone_ph: "Phone Number",
+                form_email_ph: "Email Address",
+                form_msg_ph: "Tell us about your project...",
+                form_btn: "Send Message"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_services: "Servicios",
+                nav_projects: "Proyectos",
+                nav_contact: "Contacto",
+                hero_title: "Construimos tus sueños con <span>Calidad y Confianza</span>",
+                hero_desc: "Expertos en construcción residencial y comercial: concreto, drywall, siding, roofing, tile, flooring, cabinets y mucho más.",
+                hero_btn: "Cotiza Gratis",
+                services_title: "Nuestros Servicios",
+                services_subtitle: "Soluciones integrales de construcción y remodelación para hogares y negocios",
+                srv_concrete_title: "Concreto",
+                srv_concrete_desc: "Cimentaciones, aceras, entradas de vehículos y patios de alta resistencia.",
+                srv_drywall_desc: "Instalación, división de espacios, acabados profesionales y reparaciones.",
+                srv_siding_desc: "Revestimiento exterior moderno que mejora la eficiencia energética y la fachada.",
+                srv_gutters_desc: "Instalación, limpieza y mantenimiento de canaletas para proteger cimientos.",
+                srv_roofing_title: "Roofing (Techos)",
+                srv_roofing_desc: "Instalación, mantenimiento y reparación integral de techos seguros contra filtraciones.",
+                srv_painting_title: "Pintura",
+                srv_painting_desc: "Pintura interior y exterior detallada, protegiendo y embelleciendo superficies.",
+                srv_tile_desc: "Instalación profesional de azulejos y baldosas para cocinas, baños y pisos.",
+                srv_cabinets_desc: "Diseño e instalación de gabinetes de cocina personalizados y vanidades.",
+                srv_floors_title: "Flooring (Pisos)",
+                srv_floors_desc: "Instalación especializada de pisos de madera, vinil, laminado y cerámica.",
+                srv_deck_desc: "Diseño y construcción de terrazas de madera y sintéticas personalizadas.",
+                srv_basement_title: "Basement (Sótanos)",
+                srv_basement_desc: "Terminación y remodelación completa de sótanos en áreas funcionales.",
+                srv_doors_desc: "Instalación de puertas principales de entrada, interiores y comerciales.",
+                proj_title: "Nuestros Proyectos",
+                proj_subtitle: "Explora nuestra galería organizada por categorías de especialidad",
+                filter_all: "Todos",
+                filter_concrete: "Concreto",
+                filter_drywall: "Drywall",
+                filter_siding: "Siding",
+                filter_gutters: "Gutters",
+                filter_roofing: "Roofing",
+                filter_painting: "Pintura",
+                filter_tile: "Tile",
+                filter_cabinets: "Cabinets",
+                filter_flooring: "Flooring",
+                filter_deck: "Decks",
+                filter_basement: "Basement",
+                filter_doors: "Doors",
+                cat_concrete: "Concreto",
+                cat_painting: "Pintura",
+                cat_flooring: "Pisos",
+                proj_1_title: "Entrada vehicular y Acera",
+                proj_2_title: "Divisiones y Acabados Interiores",
+                proj_3_title: "Revestimiento Siding Moderno",
+                proj_4_title: "Instalación de Canaletas (Gutters)",
+                proj_5_title: "Instalación de Techos Residenciales",
+                proj_6_title: "Renovación de Fachada Comercial",
+                proj_7_title: "Instalación de Azulejos en Baño",
+                proj_8_title: "Gabinetes de Cocina a Medida",
+                proj_9_title: "Colocación de Piso de Madera",
+                proj_10_title: "Terraza de Madera Exterior",
+                proj_11_title: "Remodelación de Sótano",
+                proj_12_title: "Puertas de Entrada Modernas",
+                contact_title: "Contáctanos",
+                contact_subtitle: "Hablemos sobre tu próximo proyecto de construcción o remodelación",
+                info_location_title: "Ubicación",
+                info_location_desc: "Disponible para trabajos residenciales y comerciales",
+                info_phone_title: "Teléfono / Mensajes",
+                info_email_title: "Correo Electrónico",
+                form_name_ph: "Tu Nombre",
+                form_phone_ph: "Número de Teléfono",
+                form_email_ph: "Correo Electrónico",
+                form_msg_ph: "Cuéntanos sobre tu proyecto...",
+                form_btn: "Enviar Mensaje"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.body.setAttribute('data-lang', lang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase() === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.getElementById('form-name').placeholder = translations[lang].form_name_ph;
+            document.getElementById('form-phone').placeholder = translations[lang].form_phone_ph;
+            document.getElementById('form-email').placeholder = translations[lang].form_email_ph;
+            document.getElementById('form-msg').placeholder = translations[lang].form_msg_ph;
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
+        // Project Filtering with Transitions
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    
+                    if (filterValue === 'all' || category === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 400);
+                    }
+                });
+            });
+        });
+
+        // Función que transforma los datos del formulario y abre el sistema para enviar Mensaje de Texto (SMS)
+        function enviarMensajeSMS(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const email = document.getElementById('form-email').value;
+            const message = document.getElementById('form-msg').value;
+
+            // Construir el texto del mensaje automatizado
+            const smsBody = `Nuevo mensaje de cotización:\nNombre: ${name}\nTeléfono: ${phone}\nCorreo: ${email}\nProyecto: ${message}`;
+            
+            // Número de telefono de la empresa
+            const phoneNumberCompany = "6142734811"; 
+
+            // Redirige al protocolo SMS del dispositivo (funciona en celulares y computadoras con app de mensajes)
+            const smsUrl = `sms:${phoneNumberCompany}?body=${encodeURIComponent(smsBody)}`;
+            
+            window.location.href = smsUrl;
+            
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
